@@ -12,5 +12,8 @@ public class Main {
         System.out.print("Provide the input line: ");
         String input = readInputString();
         System.out.println("The read input is: " + input);
+
+        LexicalAnalyzer lexicalAnalyzer = new LexicalAnalyzer();
+        lexicalAnalyzer.analyseLine(input);
     }
 }
