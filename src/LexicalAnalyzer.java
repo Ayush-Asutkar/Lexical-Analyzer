@@ -36,6 +36,10 @@ public class LexicalAnalyzer {
     }
 
     private int lexer(String line, int index) {
+        if (line.charAt(index) == '\0') {
+            return index + 1;
+        }
+
         for (Machine machine: Machine.values()) {
 //            System.out.println("Executing machine: " + machine);
             int currIndex = index;

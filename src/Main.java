@@ -15,7 +15,7 @@ public class Main {
         String input = readInputString();
         System.out.println("The read input is: " + input);
 
-        input += " ";
+        input += "\0";
 
         LexicalAnalyzer lexicalAnalyzer = new LexicalAnalyzer();
         int check = lexicalAnalyzer.analyseLine(input);

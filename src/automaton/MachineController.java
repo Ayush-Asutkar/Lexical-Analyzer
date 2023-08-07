@@ -224,9 +224,15 @@ public class MachineController {
         switch (currStateNumber) {
             case 0:
                 if (CharacterIdentifier.isDelim(ch)) {
-                    return new State(1, State.StatesAttribute.ACCEPTING_AND_NON_RETRACTING_STATE);
+                    return new State(1, State.StatesAttribute.NON_ACCEPTING_STATE);
                 }
                 break;
+
+            case 1:
+                if (CharacterIdentifier.isDelim(ch)) {
+                    return new State(1, State.StatesAttribute.NON_ACCEPTING_STATE);
+                }
+                return new State(2, State.StatesAttribute.ACCEPTING_AND_RETRACTING_STATE);
         }
 
         return new State(-1, State.StatesAttribute.INVALID_STATE);
