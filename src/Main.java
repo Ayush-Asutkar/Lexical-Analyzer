@@ -25,7 +25,7 @@ public class Main {
                 System.out.println(lexeme);
             }
         } else {
-            System.out.println("Error parsing at " + check);
+            System.out.println("Error parsing at " + check + " index: '" + input.charAt(check) + "'");
         }
     }
 }
