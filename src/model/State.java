@@ -23,4 +23,12 @@ public class State {
     public StatesAttribute getCurrStateAttribute() {
         return currStateAttribute;
     }
+
+    @Override
+    public String toString() {
+        return "State{" +
+                "currStateNumber=" + currStateNumber +
+                ", currStateAttribute=" + currStateAttribute +
+                '}';
+    }
 }

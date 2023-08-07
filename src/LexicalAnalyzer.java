@@ -19,6 +19,7 @@ public class LexicalAnalyzer {
 
         while(index < line.length()) {
             int currIndex = lexer(line, index);
+//            System.out.println("currIndex: " + currIndex);
 
             if (currIndex == -1) {
                 return index;
@@ -31,21 +32,29 @@ public class LexicalAnalyzer {
 
     private int lexer(String line, int index) {
         for (Machine machine: Machine.values()) {
+//            System.out.println("Executing machine: " + machine);
             int currIndex = index;
             State currState = new State(0, State.StatesAttribute.NON_ACCEPTING_STATE);
             while ((currIndex < line.length())  &&  (currState.getCurrStateAttribute() == State.StatesAttribute.NON_ACCEPTING_STATE)) {
                 currState = MachineController.getNext(currState, line.charAt(currIndex), machine);
+//                System.out.println("currState: " + currState);
+//                System.out.println("line.charAt(currIndex): " + line.charAt(currIndex));
                 currIndex++;
             }
+
+//            System.out.println("index: " + index + ", currIndex: " + currIndex);
 
             if ((currState.getCurrStateAttribute() == State.StatesAttribute.ACCEPTING_AND_NON_RETRACTING_STATE)  ||
                     (currState.getCurrStateAttribute() == State.StatesAttribute.ACCEPTING_AND_RETRACTING_STATE)) {
                 int nextIndex = currState.getCurrStateAttribute() == State.StatesAttribute.ACCEPTING_AND_NON_RETRACTING_STATE? currIndex: currIndex - 1;
 
                 if (machine != Machine.DELIM_MACHINE) {
-                    Lexeme lexeme = new Lexeme(Token.getTokenFromMachine(machine), line.substring(index, nextIndex - index));
+                    Lexeme lexeme = new Lexeme(Token.getTokenFromMachine(machine), line.substring(index, nextIndex));
+                    System.out.println("Lexeme: " + lexeme);
                     this.result.add(lexeme);
                 }
+
+//                System.out.println("nextIndex: " + nextIndex);
 
                 return nextIndex;
             }
@@ -57,6 +66,7 @@ public class LexicalAnalyzer {
     //for testing
     public static void main(String[] args) {
         String input = "if input<10 then output1=100 else output2>=100";
+        input += " ";
 
         LexicalAnalyzer lexicalAnalyzer = new LexicalAnalyzer();
         int check = lexicalAnalyzer.analyseLine(input);

@@ -3,12 +3,12 @@ package model;
 import automaton.Machine;
 
 public enum Token {
-    KEYWORDS, RELOP, ID, NUMBER, DELIM;
+    KEYWORD, RELOP, ID, NUMBER, DELIM;
 
     public static Token getTokenFromMachine(Machine machine) {
         switch (machine) {
             case KEYWORD_MACHINE:
-                return KEYWORDS;
+                return KEYWORD;
 
             case RELOP_MACHINE:
                 return RELOP;

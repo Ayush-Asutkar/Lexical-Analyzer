@@ -63,12 +63,10 @@ public class MachineController {
                 break;
 
             case 4:
-                if (ch == 'n') {
-                    if (!CharacterIdentifier.isDigit(ch)  &&  !CharacterIdentifier.isLetter(ch)) {
-                        return new State(5, State.StatesAttribute.ACCEPTING_AND_RETRACTING_STATE);
-                    }
-                    break;
+                if (!CharacterIdentifier.isDigit(ch)  &&  !CharacterIdentifier.isLetter(ch)) {
+                    return new State(5, State.StatesAttribute.ACCEPTING_AND_RETRACTING_STATE);
                 }
+                break;
 
             case 6:
                 if (ch == 'f') {
