@@ -20,8 +20,8 @@ public class Lexeme {
     @Override
     public String toString() {
         return "Lexeme: {" +
-                "token=" + token +
-                ", value='" + value + '\'' +
-                '}';
+                "value='" + value + '\'' +
+                ", token=" + token +
+                "}";
     }
 }
