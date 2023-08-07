@@ -21,7 +21,7 @@ and return the sequence of tokens as output.</p>
 <p>For more details check the pdf: <a href="Question.pdf">"Question.pdf"</a></p>
 
 ### How to run
-1. Clone the repository: https://github.com/Ayush-Asutkar/Regular-Expression-To-NFA-DFA.git
+1. Clone the repository: https://github.com/Ayush-Asutkar/Lexical-Analyzer.git
 2. Open in your favourite editor. (The editor used while making this project was Intellij IDEA)
 3. Run the complete project by running the Main.java in src folder. Write input in a particular line on the console. Pressing enter will execute the program.
 <p>Example input:</p>
