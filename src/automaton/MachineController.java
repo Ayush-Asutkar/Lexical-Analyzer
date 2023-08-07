@@ -4,7 +4,7 @@ import model.CharacterIdentifier;
 import model.State;
 
 public class MachineController {
-    public static State getNext(State currState, char ch, Machine machine) {
+    public static State getNextState(State currState, char ch, Machine machine) {
         switch (machine) {
             case KEYWORD_MACHINE:
                 return keyword_machine(currState, ch);

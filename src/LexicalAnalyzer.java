@@ -5,6 +5,7 @@ import model.State;
 import model.Token;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class LexicalAnalyzer {
@@ -12,6 +13,10 @@ public class LexicalAnalyzer {
 
     public LexicalAnalyzer() {
         this.result = new ArrayList<>();
+    }
+
+    public List<Lexeme> getResult() {
+        return Collections.unmodifiableList(result);
     }
 
     public int analyseLine (String line) {
@@ -36,7 +41,7 @@ public class LexicalAnalyzer {
             int currIndex = index;
             State currState = new State(0, State.StatesAttribute.NON_ACCEPTING_STATE);
             while ((currIndex < line.length())  &&  (currState.getCurrStateAttribute() == State.StatesAttribute.NON_ACCEPTING_STATE)) {
-                currState = MachineController.getNext(currState, line.charAt(currIndex), machine);
+                currState = MachineController.getNextState(currState, line.charAt(currIndex), machine);
 //                System.out.println("currState: " + currState);
 //                System.out.println("line.charAt(currIndex): " + line.charAt(currIndex));
                 currIndex++;
@@ -50,7 +55,7 @@ public class LexicalAnalyzer {
 
                 if (machine != Machine.DELIM_MACHINE) {
                     Lexeme lexeme = new Lexeme(Token.getTokenFromMachine(machine), line.substring(index, nextIndex));
-                    System.out.println("Lexeme: " + lexeme);
+//                    System.out.println("Lexeme: " + lexeme);
                     this.result.add(lexeme);
                 }
 
@@ -66,6 +71,7 @@ public class LexicalAnalyzer {
     //for testing
     public static void main(String[] args) {
         String input = "if input<10 then output1=100 else output2>=100";
+//        String input = "if a >= b thenext = 6 else theold = 4";
         input += " ";
 
         LexicalAnalyzer lexicalAnalyzer = new LexicalAnalyzer();
