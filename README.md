@@ -23,7 +23,9 @@ and return the sequence of tokens as output.</p>
 ### How to run
 1. Clone the repository: https://github.com/Ayush-Asutkar/Lexical-Analyzer.git
 2. Open in your favourite editor. (The editor used while making this project was Intellij IDEA)
-3. Run the complete project by running the Main.java in src folder. Write input in a particular line on the console. Pressing enter will execute the program.
+3. Run the complete project by running the Main.java in src folder. Keep on entering the text in the input console.
+<p>Note: The program can handle multiline inputs. So, when you press enter it asks for another line og input. 
+When are you done with giving the inputs, an empty line should be entered to tell the program that the input is finished.</p>
 <p>Example input:</p>
 <p>if input<10 then output1=100 else output2>=100</p>
 <p>else if then then2 else3 ifthen if3</p>
