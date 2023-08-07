@@ -1,4 +1,4 @@
-package model;
+package helper;
 
 public class CharacterIdentifier {
     public static boolean isLetter (char ch) {

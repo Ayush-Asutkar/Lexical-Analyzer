@@ -1,6 +1,6 @@
 package automaton;
 
-import model.CharacterIdentifier;
+import helper.CharacterIdentifier;
 import model.State;
 
 public class MachineController {
